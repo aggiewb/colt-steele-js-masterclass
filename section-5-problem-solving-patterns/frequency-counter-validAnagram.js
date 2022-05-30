@@ -7,19 +7,16 @@ function validAnagram(str1, str2){
     }
 
     const str1LetterCount = {};
-    const str2LetterCount = {};
 
     for (const letter of str1) {
         str1LetterCount[letter] = (str1LetterCount[letter] || 0) + 1;
     }
 
     for (const letter of str2) {
-        str2LetterCount[letter] = (str2LetterCount[letter] || 0) + 1;
-    }
-
-    for (const letter in str1LetterCount) {
-        if (str1LetterCount[letter] !== str2LetterCount[letter]) {
+        if (!str1LetterCount[letter]) {
             return false;
+        } else {
+            str1LetterCount[letter] -= 1;
         }
     }
     
