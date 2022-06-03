@@ -15,3 +15,8 @@ function areThereDuplicates(...args) {
     }
     return false;
 }
+
+// One line solution
+function areThereDuplicates(...args) {
+    return new Set(args).size !== args.length;
+}
