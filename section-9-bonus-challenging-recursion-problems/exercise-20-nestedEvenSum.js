@@ -7,12 +7,10 @@ function nestedEvenSum (obj) {
         const itemValue = obj[item];
         if (typeof itemValue === "object") {
             sum += nestedEvenSum(itemValue);
-            
         }
         else if (typeof itemValue === "number" && itemValue % 2 === 0) {
             sum += itemValue; 
-        }
-        
+        }  
     }
     return sum;
 }
