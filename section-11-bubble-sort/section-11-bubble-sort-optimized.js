@@ -12,6 +12,7 @@ function bubbleSort(arr) {
             break;
         }
     }
+    return arr;
 }
 
 function swap(arr, index1, index2) {
