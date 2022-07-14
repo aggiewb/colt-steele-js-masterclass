@@ -1,3 +1,4 @@
+// Big O notation for merge sort is O(n log n). 
 function mergeSort(arr) {
     if (arr.length === 1) {
         return arr;
