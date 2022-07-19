@@ -1,4 +1,4 @@
-function pivot(arr, start = 0) {
+function pivot(arr, left = 0, right = arr.length - 1) {
     const pivot = arr[start];
     let swapIndex = 0;
 
