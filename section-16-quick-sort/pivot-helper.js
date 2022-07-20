@@ -1,8 +1,8 @@
-function pivot(arr, start = 0) {
+function pivot(arr, start = 0, end = arr.length - 1) {
     const pivot = arr[start];
-    let swapIndex = 0;
+    let swapIndex = start;
 
-    for (let i = 1; i < arr.length; i++) {
+    for (let i = 1; i <= end; i++) {
         if (pivot > arr[i]) {
             swapIndex++;
             swap(arr, i, swapIndex);
