@@ -9,7 +9,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
     return arr;
 }
 
-function pivot(arr, start = 0, end = arr.length - 1) {
+function pivot(arr, start = Math.floor(arr.length - 1) / 2, end = arr.length - 1) {
     let swapIndex = start;
     const pivot = arr[0];
     for (let i = 1; i <= end; i++) {
