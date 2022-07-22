@@ -9,11 +9,15 @@ function getDigit(num, digit) {
       % 10);
   }
 
-  function getDigits(num) {
+  function digitCount(num) {
+    //  the base 10 logarithm of 0 is -Infinity
+    if (num === 0) {
+      return 1;
+    }
     // number representing the largest integer less than or equal to the specified number
     return Math.floor(
-      // to what exponent is returned with a base of 10
-      Math.log10(num)
+      // the number that is returned if the exponent is the num
+      Math.log10(Math.abs(num))
       // need to add one to the digits place of the exponent returned
     ) + 1;
   }
