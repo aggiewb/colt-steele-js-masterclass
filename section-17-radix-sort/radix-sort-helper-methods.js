@@ -21,3 +21,14 @@ function getDigit(num, digit) {
       // need to add one to the digits place of the exponent returned
     ) + 1;
   }
+
+  function mostDigits(nums) {
+    let mostDigitCounter = 0;
+    nums.forEach(num => {
+      const currentDigetCount = digitCount(num);
+      if(currentDigetCount > mostDigitCounter) {
+        mostDigitCounter = currentDigetCount;
+      }
+    });
+    return mostDigitCounter;
+  }
