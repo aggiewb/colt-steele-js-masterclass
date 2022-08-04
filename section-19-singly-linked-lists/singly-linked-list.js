@@ -119,4 +119,22 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+
+    remove(index) {
+        if (index >= this.length || index < 0) {
+            return null;
+        }
+        else if (index === 0) {
+            return this.shift();
+        }
+        else if (index === this.length - 1) {
+            return this.pop();
+        }
+        else {
+            const removedNode = this.get(index);
+            this.get(index - 1).next = removedNode.next;
+            this.length--;
+            return removedNode;
+        }
+    }
 }
