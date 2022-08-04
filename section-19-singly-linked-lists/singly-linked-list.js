@@ -137,4 +137,17 @@ class SinglyLinkedList {
             return removedNode;
         }
     }
+
+    reverse() {
+        let previousNodeIndex = this.length - 2;
+        const currentTail = this.tail;
+    
+        while (previousNodeIndex >= 0) {
+          this.tail.next = this.get(previousNodeIndex);
+          this.tail = this.tail.next;
+          previousNodeIndex--;
+        }
+        this.head = currentTail;
+        this.tail.next = null;
+    }
 }
