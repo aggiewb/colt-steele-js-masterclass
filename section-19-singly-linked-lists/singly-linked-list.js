@@ -111,7 +111,6 @@ class SinglyLinkedList {
             this.push(value);
         }
         else {
-            // TODO: Double check assignment
             const node = new Node(value);
             node.next = this.get(index);
             const prevNode = this.get(index - 1);
