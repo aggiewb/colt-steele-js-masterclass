@@ -149,5 +149,6 @@ class SinglyLinkedList {
         }
         this.head = currentTail;
         this.tail.next = null;
+        return this;
     }
 }
