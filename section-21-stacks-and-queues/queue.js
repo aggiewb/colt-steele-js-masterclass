@@ -31,11 +31,32 @@ class Queue {
         this.size = 0;
     }
 
+    // similar to push O(1)
     enqueue(value) {
+        const node = new Node(value);
 
+        if(!this.first) {
+            this.first = node;
+            this.last = this.first;
+        } else {
+            this.last.next = node;
+            this.last = node;
+        }
+        return ++this.size;
     }
 
+    // similar to shift O(1)
     dequeue() {
-        
+        if (!this.first) {
+            return null;
+        }
+
+        const firstNode = this.first;
+        if (this.size === 1) {
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return firstNode.value;
     }
 }
