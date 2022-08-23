@@ -15,3 +15,27 @@ stack.unshift("example");
 stack.shift(); // example
 stack.shift(); // stack
 stack.shift(); // another
+
+// stack singly linked list implementation
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+    push(value) {
+
+    }
+
+    pop() {
+        
+    }
+}
