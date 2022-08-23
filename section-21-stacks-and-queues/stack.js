@@ -31,7 +31,7 @@ class Stack {
         this.size = 0;
     }
 
-    // adding to the beginning O(N)
+    // adding to the beginning O(1)
     push(value) {
         const node = new Node(value);
 
@@ -46,7 +46,7 @@ class Stack {
         return ++this.size;
     }
 
-    // removing from the beginning O(N)
+    // removing from the beginning O(1)
     pop() {
         if (!this.first) {
             return null;
