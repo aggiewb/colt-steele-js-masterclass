@@ -11,6 +11,7 @@ class BinarySearchTree {
         this.root = null;
     }
 
+    // O(log n) best and average case
     insert(value) {
         const node = new Node(value);
 
@@ -37,6 +38,7 @@ class BinarySearchTree {
         return this; 
     }
 
+    // O(log n) best and average case
     find(value) {
         let hasFoundNode = false;
         if (this.root !== null) {
