@@ -121,4 +121,20 @@ class BinarySearchTree {
         traverse(this.root);
         return visited;
     }
+
+    // Explore left, then root, then right
+    depthFirstSearchInorder() {
+        const visited = [];
+        const traverse = node => {
+            if(node.left) {
+                traverse(node.left);
+            }
+            visited.push(this.root);
+            if(node.right) {
+                traverse(node.right);
+            }
+        }
+        traverse(this.root);
+        return visited;
+    }
 }
