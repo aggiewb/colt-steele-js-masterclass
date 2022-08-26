@@ -88,6 +88,7 @@ class BinarySearchTree {
         }
     }
 
+    // Explore root, then left, then right
     depthFirstSearchPreorder() {
         const visited = [];
         const traverse = node => {
@@ -99,6 +100,23 @@ class BinarySearchTree {
             if(node.right) {
                 traverse(node.right);
             }
+        }
+        traverse(this.root);
+        return visited;
+    }
+
+    // Explore left, then right, then root
+    depthFirstSearchPostorder() {
+        const visited = [];
+        const traverse = node => {
+            
+            if(node.left) {
+                traverse(node.left);
+            }
+            if(node.right) {
+                traverse(node.right);
+            }
+            visited.push(node.value);
         }
         traverse(this.root);
         return visited;
