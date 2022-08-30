@@ -25,36 +25,12 @@ class MaxBinaryHeap {
         let rootValue = this.values[0];
 
         let i = 0;
-        let j = i;
         let leftChild = this.values[(2 * i) + 1];
-        let rightChild = this.values[(2 * j) + 2];
+        let rightChild = this.values[(2 * i) + 2];
         let hasSwapped = false;
-      
+        
+        // TODO: Write while loop contents
         while (leftChild || rightChild) {
-            if (leftChild > rootValue) {
-                [this.values[i], this.values[leftChild]] = 
-                [this.values[leftChild], this.values[i]];
-                hasSwapped = true;
-                i = (2 * i) + 1;
-            } 
-            if ((rightChild > rootValue && !hasSwapped) ||
-                (rightChild > leftChild && hasSwapped)) {
-                [this.values[j], this.values[rightChild]] = 
-                [this.values[rightChild], this.values[j]];
-                i, j = (2 * j) + 2;
-                rightChild = this.values[i];
-            }
-            if (rightChild < leftChild && hasSwapped) {
-                j = i;
-                leftChild = this.values[i];
-            }
-            else {
-                break;
-            }
-            hasSwapped = false;
-            // TODO: This value is not being set correctly
-            rootValue = this.values[i];
         }
-        return max;
     }
 }
