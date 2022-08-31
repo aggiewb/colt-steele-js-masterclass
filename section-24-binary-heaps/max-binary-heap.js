@@ -18,19 +18,51 @@ class MaxBinaryHeap {
     }
 
     extractMax() {
-        const valuesLastIndex = this.values.length - 1;
-        [this.values[0], this.values[valuesLastIndex]] = 
-        [this.values[valuesLastIndex], this.values[0]];
-        const max = this.values.pop();
-        let rootValue = this.values[0];
+        const max = this.values[0];
+        const end = this.values.pop();
+        const valuesLength = this.values.length;
 
-        let i = 0;
-        let leftChild = this.values[(2 * i) + 1];
-        let rightChild = this.values[(2 * i) + 2];
-        let hasSwapped = false;
-        
-        // TODO: Write while loop contents
-        while (leftChild || rightChild) {
+        if (valuesLength === 1) {
+            this.values = [];
+            return max;
         }
+        this.values[0] = end;
+
+        let index = 0;
+        let element = this.values[index];
+        let hasBubbledDown = true;
+        
+        while (hasBubbledDown) {
+            const leftChildIndex = 2 * index + 1;
+            const rightChildIndex = 2 * index + 2;
+            let indexToSwap = null;
+            let leftChild, rightChild = null;
+
+            if (leftChildIndex < valuesLength) {
+                leftChild = this.values[leftChildIndex];
+                if (leftChild > element) {
+                    indexToSwap = leftChildIndex;
+                }
+            }
+
+            if (rightChildIndex < valuesLength) {
+                rightChild = this.values[rightChildIndex];
+                if (
+                    (indexToSwap === null && rightChild > element) ||
+                    (indexToSwap !== null && rightChild > leftChild)
+                ) {
+                    indexToSwap = rightChildIndex;
+                }
+            }
+         
+            if (indexToSwap === null) {
+                hasBubbledDown = false;
+            } else {
+                this.values[index] = this.values[indexToSwap];
+                this.values[indexToSwap] = element;
+                index = indexToSwap;
+            }
+        }
+        return max;
     }
 }
